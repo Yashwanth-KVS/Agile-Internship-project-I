@@ -42,3 +42,7 @@ def dashboard(request):
 def logout(request):
     auth_logout(request)
     return render(request,'registration/login.html')
+
+
+def insights(request):
+    return render(request,'dashboard.html')
