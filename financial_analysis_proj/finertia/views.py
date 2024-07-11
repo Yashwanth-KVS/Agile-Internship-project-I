@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -46,3 +47,20 @@ def logout(request):
 
 def insights(request):
     return render(request,'dashboard.html')
+
+
+def desktop1_api(request):
+    data = {
+        "ourServices": "Our Services",
+        "products": [
+            {"name": "Product"},
+            {"name": "Manage your Finances"},
+            {"name": "Savings Schemes"},
+            {"name": "Financial Insights"}
+        ],
+        "navItems": ["Home", "Product", "Banking", "Login"],
+        "footerText": "Follow us to know more",
+        "contactUs": "Contact Us",
+        "description": "Financial wellness is a way of effectively managing your finances. Not knowing how to deal with your finances can lead to major stress, anxiety or depression. Finance plays a substantial role in your daily wellness and well-being."
+    }
+    return JsonResponse(data)

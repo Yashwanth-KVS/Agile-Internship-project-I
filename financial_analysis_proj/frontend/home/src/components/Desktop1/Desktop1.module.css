@@ -1,0 +1,401 @@
+.image.image {
+  background-image:/* webpackIgnore: true */ url('/assets/image2.jpeg');
+}
+.iPhone11ProMaxCopy {
+  color: #fff;
+  font-size: 24px;
+  line-height: 35px;
+  font-family: Bungee Color, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  height: min-content;
+  flex: 1;
+  flex-direction: column;
+}
+.image2.image2 {
+  background-image:/* webpackIgnore: true */ url('/assets/image3.jpeg');
+}
+.iPhone11ProMaxCopy2 {
+  color: #fff;
+  font-size: 24px;
+  line-height: 35px;
+  font-family: Bungee Color, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  height: min-content;
+  flex: 1;
+  flex-direction: column;
+}
+.image3.image3 {
+  background-image:/* webpackIgnore: true */ url('/assets/image4.jpeg');
+}
+.iPhone11ProMaxCopy3 {
+  color: #fff;
+  font-size: 24px;
+  line-height: 35px;
+  font-family: Bungee Color, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  height: min-content;
+  flex: 1;
+  flex-direction: column;
+}
+.root {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #000;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.rectangle1 {
+  position: absolute;
+  left: calc(50% - 0px);
+  top: 0px;
+  width: 1440px;
+  height: 379px;
+  overflow: visible;
+  transform: translateX(-50%);
+}
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.micheileHendersonSoT4MZhyhEUns {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1440px;
+  height: 492px;
+  background-color: #07070700;
+}
+.stockCakeDigitalFinanceHub_171 {
+  transform-origin: top left;
+  position: absolute;
+  left: -0.8805px;
+  top: 2.293px;
+  width: 1439.3149px;
+  height: 376.999px;
+  outline: solid 1px #000;
+  outline-offset: -1px;
+  border-radius: 11px;
+  background-image:/* webpackIgnore: true */ url('/assets/stockCakeDigitalFinanceHub_171.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0px 4px 4px 0px #00000040;
+  transform: matrix(1, -0.0032, 0.0032, 1, 0, 0);
+}
+.frame1 {
+  position: absolute;
+  left: -1px;
+  top: 375px;
+  width: 1440px;
+  height: 752px;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #000;
+  overflow: hidden;
+}
+.frame20 {
+  position: absolute;
+  left: 135px;
+  top: 214.0736px;
+  width: min-content;
+  height: min-content;
+  gap: 50px;
+}
+.ourBestResultsFor {
+  color: #fff;
+  font-size: 36px;
+  line-height: 43px;
+  font-weight: bold;
+  font-family: Arial, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 42.2917%;
+  right: 42.2222%;
+  top: 12.5891%;
+  bottom: 82.304%;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+.frame19 {
+  position: absolute;
+  left: 759px;
+  top: 81px;
+  width: 638px;
+  height: 93px;
+  align-items: center;
+  gap: 86px;
+}
+.home {
+  background-image: linear-gradient(90deg, #ffff 100%, #999f 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+  line-height: 160%;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Arial, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: 0.01em;
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.product {
+  background-image: linear-gradient(90deg, #ffff 100%, #999f 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+  line-height: 160%;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Arial, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: 0.01em;
+  width: min-content;
+  height: min-content;
+  text-shadow: 0px 4px 4px #00000040;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.banking {
+  background-image: linear-gradient(90deg, #ffff 100%, #999f 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
+  line-height: 160%;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Arial, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: 0.01em;
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.frame17 {
+  width: min-content;
+  height: min-content;
+  padding: 16px 32px;
+  border-radius: 100px;
+}
+.login {
+  background-image: linear-gradient(90deg, #ffff 100%, #999f 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+  line-height: 160%;
+  font-weight: bold;
+  font-family: Arial, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: 0.01em;
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.frame33861 {
+  position: absolute;
+  left: 116px;
+  top: 1342px;
+  width: 1173px;
+  height: min-content;
+  align-items: center;
+  gap: 110px;
+}
+.followUsToKnowMore {
+  color: #fff;
+  font-size: 44.3646px;
+  line-height: 135%;
+  font-weight: bold;
+  font-family: Arial, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: -0.02em;
+  width: 255.0962px;
+  height: min-content;
+  flex-direction: column;
+}
+.wrapper {
+  width: min-content;
+  height: min-content;
+  align-items: flex-start;
+  gap: 78.8703px;
+}
+.frame33858 {
+  width: min-content;
+  height: min-content;
+}
+.frame21 {
+  position: relative;
+  width: 78.8703px;
+  height: 78.8703px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.linkedIn2668700_640EzgifComCro {
+  position: absolute;
+  left: -1.0962px;
+  top: 0.4352px;
+  width: 80px;
+  height: 78px;
+  background-image:/* webpackIgnore: true */ url('/assets/linkedIn2668700_640EzgifComCro.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.frame33859 {
+  width: 83px;
+  height: min-content;
+}
+.download1 {
+  width: 83px;
+  height: 80px;
+  background-image:/* webpackIgnore: true */ url('/assets/download1.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.frame33860 {
+  width: min-content;
+  height: min-content;
+}
+.instagram {
+  position: relative;
+  width: 78.8703px;
+  height: 78.8703px;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.munchyGram {
+  position: absolute;
+  left: 7.3941px;
+  top: 7.3941px;
+  width: 64.0821px;
+  height: 64.0821px;
+}
+.icon2 {
+  width: 100%;
+  height: 100%;
+}
+.download11 {
+  width: 75px;
+  height: 69px;
+  background-image:/* webpackIgnore: true */ url('/assets/download11.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.rectangle2 {
+  position: absolute;
+  left: 0;
+  top: 1127px;
+  width: 1439px;
+  height: 184px;
+  background-color: #000;
+}
+.rectangle3 {
+  position: absolute;
+  left: 1090px;
+  top: 1311px;
+  width: 349px;
+  height: 246px;
+  background-color: #000;
+}
+.contactUs {
+  color: #fff;
+  font-size: 30px;
+  line-height: 135%;
+  font-weight: 600;
+  font-family: Plus Jakarta Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: -0.02em;
+  position: absolute;
+  left: 1090px;
+  top: 1315px;
+  width: 349px;
+  height: 181px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.financialWellnessIsAWayOfEffec {
+  position: absolute;
+  left: 0;
+  top: 1127px;
+  width: 1439px;
+  height: 184px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.textBlock {
+  color: #fff;
+  font-size: 30px;
+  line-height: 135%;
+  font-weight: 600;
+  font-family: Plus Jakarta Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+.textBlock2 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 30px;
+  line-height: 135%;
+  font-weight: 600;
+  font-family: Plus Jakarta Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+.textBlock3 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 30px;
+  line-height: 135%;
+  font-weight: 600;
+  font-family: Plus Jakarta Sans, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+.finertia_transparent1 {
+  position: absolute;
+  left: calc(50% - 456.5px);
+  top: 4px;
+  width: 435px;
+  height: 279px;
+  background-image:/* webpackIgnore: true */ url('/assets/finertia_transparent1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translateX(-50%);
+}
