@@ -14,7 +14,7 @@ class SignupView(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('dashboard')
+            return redirect('finertia:dashboard')
         return render(request, 'registration/signup.html', {'form': form})
 
 class LoginView(View):
@@ -32,15 +32,15 @@ class LoginView(View):
             )
             if user is not None:
                 login(request, user)
-                return redirect('dashboard')
+                return redirect('finertia:dashboard')
         return render(request, 'registration/login.html', {'form': form})
 
 
 def home(request):
     return render(request, 'home.html')
 
-def userpage(request):
-    return render(request, 'desktop_11.html')
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 def analytics(request):
     return render(request, 'analytics.html')

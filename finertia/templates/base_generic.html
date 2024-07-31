@@ -1,57 +1,4 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#  <meta charset="UTF-8">#}
-{#    {% load static %}#}
-{#  <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
-{#  <link rel="stylesheet" href="{% static 'css/style.css' %}">#}
-{#  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">#}
-{#  <title>Financial App</title>#}
-{#</head>#}
-{#<body>#}
-{#  <nav class="navbar navbar-expand-lg navbar-light bg-light">#}
-{#    <a class="navbar-brand" href="{% url 'dashboard' %}">Financial App</a>#}
-{#    <div class="collapse navbar-collapse">#}
-{#      <ul class="navbar-nav ml-auto">#}
-{#        {% if user.is_authenticated %}#}
-{#          <li class="nav-item">#}
-{#            <a class="nav-link" href="{% url 'logout' %}">Logout</a>#}
-{#          </li>#}
-{#        {% else %}#}
-{#          <li class="nav-item">#}
-{#            <a class="nav-link" href="{% url 'login' %}">Login</a>#}
-{#          </li>#}
-{#          <li class="nav-item">#}
-{#            <a class="nav-link" href="{% url 'signup' %}">Signup</a>#}
-{#          </li>#}
-{#        {% endif %}#}
-{#      </ul>#}
-{#    </div>#}
-{#  </nav>#}
-{#  <div class="content">#}
-{#    {% block content %}#}
-{#    {% endblock %}#}
-{#  </div>#}
-{#</body>#}
-{#</html>#}
 
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#  <meta charset="UTF-8">#}
-{#  <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
-{#  <title>{% block title %}My Site{% endblock %}</title>#}
-{#  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">#}
-{#  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">#}
-{#  {% block extra_head %}{% endblock %}#}
-{#</head>#}
-{#<body>#}
-{#  {% block content %}{% endblock %}#}
-{#  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>#}
-{#  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>#}
-{#  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>#}
-{#</body>#}
-{#</html>#}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +34,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="{% url 'dashboard' %}">
+        <a class="navbar-brand" href="{% url 'finertia:dashboard' %}">
             <i class="fas fa-chart-line"></i> Finertia
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,14 +44,14 @@
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        <a class="nav-link" href="{% url 'finertia:logout' %}">Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        <a class="nav-link" href="{% url 'finertia:login' %}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+                        <a class="nav-link" href="{% url 'finertia:signup' %}">Signup</a>
                     </li>
                 {% endif %}
             </ul>
