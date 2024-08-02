@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desktop - 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Color:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/finertia/css/analytics_css.css" />
+  </head>
+  <body>
+    <div class="desktop-1">
+      <div class="container">
+
+        <div class="frame-19" >
+                 <div class="frame-17" >
+                <span class="login">
+                  <a class="navbar-brand"  style="color:white; text-decoration: none;" href="{% url 'finertia:logout' %}">Logout</a>
+                </span>
+               </div>
+                 <div class="home">
+                     <a class="navbar-brand justify-content-between" style="color:white; text-decoration: none;" href="{% url 'finertia:home' %}">Home</a>
+                </div>
+                 <img src="../static/finertia/assets/analtics_insights_payments/images/finertia_transparent_1.png" style="height: 250px; width: 250px; margin-right: 1300px">
+        </div>
+
+
+        <div class="sidebar">
+          <div class="manage">MANAGE</div>
+          <div class="menu-item">
+            <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_2_x2.svg" alt="Dashboard Icon" />
+            <span><a class="navbar-brand"  style="color:white; text-decoration: none;" href="{% url 'finertia:dashboard' %}">Dashboard</a></span>
+          </div>
+          <div class="menu-item">
+            <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_17_x2.svg" alt="Analytics Icon" />
+              <span><a class="navbar-brand"  style="color:white; text-decoration: none;" href="{% url 'finertia:analytics' %}">Analytics</a></span>
+          </div>
+          <div class="menu-item">
+            <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_31_x2.svg" alt="Insights Icon" />
+              <span><a class="navbar-brand"  style="color:white; text-decoration: none;" href="{% url 'finertia:insights' %}">Insights</a></span>
+          </div>
+
+          <div class="preferences">PREFERENCES</div>
+          <div class="menu-item">
+            <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_40_x2.svg" alt="Theme Icon" />
+               <span><a class="navbar-brand"  style="color:white; text-decoration: none;" href="{% url 'finertia:payments' %}">Theme</a></span>
+          </div>
+          <div class="menu-item">
+            <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_34_x2.svg" alt="Payments Icon" />
+              <span><a class="navbar-brand"  style="color:white; text-decoration: none;" href="{% url 'finertia:payments' %}">Payments</a></span>
+          </div>
+        </div>
+
+        <div class="main-content">
+          <div class="transactions">
+            <div class="top-bar">
+              <div class="title">
+                <span>Transactions</span>
+                <div class="line"></div>
+                <span>Upcoming Bills</span>
+              </div>
+              <div class="view-all">View all</div>
+            </div>
+            <div class="transaction-item">
+              <div class="picture">
+                  <img src="../static/finertia/assets/analtics_insights_payments/images/image_4.png" style="width: 30px; height: 30px">
+              </div>
+              <div class="text-contents">
+                <div class="name-and-date">
+                  <div>
+                      Netflix
+                  </div>
+                  <span>July 05 2024 at 21:46</span>
+                </div>
+                <div class="amount">-$15.49</div>
+              </div>
+            </div>
+            <div class="transaction-item">
+              <div class="picture">
+                  <img src="../static/finertia/assets/analtics_insights_payments/images/image_5.png" style="width: 30px; height: 30px">
+              </div>
+              <div class="text-contents">
+                <div class="name-and-date">
+                  <div>Spotify</div>
+                  <span>June 14, 2024 at 08:10</span>
+                </div>
+                <div class="amount">+$135.49</div>
+              </div>
+            </div>
+            <div class="transaction-item">
+              <div class="picture">
+                  <img src="../static/finertia/assets/analtics_insights_payments/images/image_6.png" style="width: 30px; height: 30px">
+              </div>
+              <div class="text-contents">
+                <div class="name-and-date">
+                  <div>Figma</div>
+                  <span>May 20, 2024 at 19:24</span>
+                </div>
+                <div class="amount">-$75.00</div>
+              </div>
+            </div>
+            <div class="transaction-item">
+              <div class="picture">
+                  <img src="../static/finertia/assets/analtics_insights_payments/images/image_7.png" style="width: 30px; height: 30px">
+              </div>
+              <div class="text-contents">
+                <div class="name-and-date">
+                  <div>Shopify</div>
+                  <span>May 07, 2024 at 06:58</span>
+                </div>
+                <div class="amount">+$934.29</div>
+              </div>
+            </div>
+          </div>
+          <div class="summary">
+            <div class="summary-item">
+              <img src="../static/finertia/assets/analtics_insights_payments/vectors/money_send_x2.svg" alt="Total Expenses Icon" />
+              <div>Total Expenses</div>
+              <span>$238.000</span>
+              <div class="percentage">+1.29%</div>
+            </div>
+            <div class="summary-item">
+              <img src="../static/finertia/assets/analtics_insights_payments/vectors/card_receive_x2.svg" alt="Total Savings Icon" />
+              <div>Total Savings</div>
+              <span>$354.000</span>
+              <div class="percentage">+1.29%</div>
+            </div>
+            <div class="summary-item">
+              <img src="../static/finertia/assets/analtics_insights_payments/vectors/money_recive_x2.svg" alt="Total Income Icon" />
+              <div>Total Income</div>
+              <span>$592.000</span>
+              <div class="percentage">+1.29%</div>
+            </div>
+          </div>
+          <div class="goals">
+            <div class="goal-item">
+              <span>$550</span>
+              <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_42_x2.svg" alt="Holidays Icon" />
+              <span>Holidays</span>
+              <span>12/20/24</span>
+            </div>
+            <div class="goal-item">
+              <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_29_x2.svg" alt="Renovation Icon" />
+              <span>Renovation</span>
+            </div>
+            <div class="goal-item">
+              <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_50_x2.svg" alt="Xbox Icon" />
+              <span>Xbox</span>
+            </div>
+          </div>
+          <div class="weekly-view">
+            <div class="statistics">Statistics</div>
+            <div class="sort">
+              <span>Week</span>
+              <div class="dropdown">
+                <img src="../static/finertia/assets/analtics_insights_payments/vectors/vector_11_x2.svg" alt="Dropdown Icon" />
+              </div>
+            </div>
+            <div class="chart">
+              <div class="y-axis">
+                <span>$40k</span>
+                <span>$30k</span>
+                <span>$20k</span>
+                <span>$10k</span>
+                <span>$5k</span>
+                <span>0</span>
+              </div>
+              <div class="bars">
+                <div class="bar">
+                  <div class="details">
+                    <img src="../static/finertia/assets/analtics_insights_payments/vectors/union_x2.svg" alt="Income Icon" />
+                    <span>Income</span>
+                    <span>+$25000</span>
+                  </div>
+                </div>
+                <div class="bar">
+                  <img src="../static/finertia/assets/analtics_insights_payments/vectors/ellipse_79_x2.svg" alt="Ouflow Icon" />
+                </div>
+              </div>
+              <div class="x-axis">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
