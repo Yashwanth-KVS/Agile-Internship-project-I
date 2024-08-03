@@ -52,5 +52,20 @@ def payments(request):
     return render(request, 'payments.html')
 
 def logout(request):
-    auth_logout(request)
-    return render(request,'registration/login.html')
+
+    if request.method == 'GET':
+        auth_logout(request)
+        return render(request, 'registration/login.html')
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = authenticate(
+                request,
+                username=form.cleaned_data.get('username'),
+                password=form.cleaned_data.get('password')
+            )
+            if user is not None:
+                login(request, user)
+                return redirect('finertia:dashboard')
+        return render(request, 'registration/login.html', {'form': form})
