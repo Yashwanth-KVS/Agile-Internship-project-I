@@ -45,8 +45,9 @@ def dashboard(request):
 def analytics(request):
     return render(request, 'analytics.html')
 
+
 def insights(request):
-    return render(request, 'insights.html')
+    return render(request, 'ini-test.html')
 
 def payments(request):
     return render(request, 'payments.html')
