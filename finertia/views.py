@@ -78,17 +78,42 @@ def home(request):
     return render(request, 'home.html')
 
 
+# @login_required
+# def dashboard(request):
+#     user_data = UserData.objects.get(user=request.user)
+#     user_transactions = user_data.transactions.all()
+#     context = {
+#         'transactions': user_transactions,
+#         'username': request.user.username  # Add this line
+#     }
+#     return render(request, 'dashboard.html', context)
+
 @login_required
 def dashboard(request):
     user_data = UserData.objects.get(user=request.user)
     user_transactions = user_data.transactions.all()
+
+    # Calculate spending by category
+    # category_spending = user_transactions.filter(income_expense='Expense').values('category').annotate(
+    #     total=Coalesce(Sum('amount', output_field=DecimalField()), 0)
+    # ).order_by('-total')
+
+    # Calculate spending by category
+    category_spending = user_transactions.filter(income_expense='Expense').values('category').annotate(
+        total=Coalesce(Sum('amount', output_field=DecimalField()), 0, output_field=DecimalField())
+    ).order_by('-total')
+
+    # Prepare data for the chart
+    categories = [item['category'] for item in category_spending]
+    amounts = [float(item['total']) for item in category_spending]
+
     context = {
         'transactions': user_transactions,
-        'username': request.user.username  # Add this line
+        'username': request.user.username,
+        'categories_json': json.dumps(categories, cls=DjangoJSONEncoder),
+        'amounts_json': json.dumps(amounts, cls=DjangoJSONEncoder),
     }
     return render(request, 'dashboard.html', context)
-
-
 
 
 
