@@ -1,37 +1,92 @@
-{#{% extends 'base_generic.html' %}#}
-{##}
-{#{% block content %}#}
-{#  <div class="container mt-5">#}
-{#    <h2>Signup</h2>#}
-{#    <form method="post">#}
-{#      {% csrf_token %}#}
-{#      {{ form.as_p }}#}
-{#      <button type="submit" class="btn btn-primary">Signup</button>#}
-{#    </form>#}
-{#  </div>#}
-{#{% endblock %}#}
-
-{% extends 'base_generic.html' %}
-
-{% block content %}
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card shadow-sm">
-          <div class="card-header bg-primary text-white text-center">
-            <h2>Signup</h2>
-          </div>
-          <div class="card-body">
-            <form method="post">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary btn-block">Signup</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'finertia/css/style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'finertia/assets/images/stock_cake_digital_finance_hub_17182170571.jpeg' %}" alt="Header Background" class="background">
+        <img src="{% static 'finertia/assets/images/finertia_transparent_1.png' %}" alt="Finertia Logo" class="logo">
     </div>
-  </div>
-{% endblock %}
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <p>
+                <label for="id_username">Username:</label>
+                {{ form.username }}
+                {% for error in form.username.errors %}
+                    <ul class="errorlist">
+                        <li>{{ error }}</li>
+                    </ul>
+                {% endfor %}
+            </p>
+            <p>
+                <label for="id_first_name">First name:</label>
+                {{ form.first_name }}
+                {% for error in form.first_name.errors %}
+                    <ul class="errorlist">
+                        <li>{{ error }}</li>
+                    </ul>
+                {% endfor %}
+            </p>
+            <p>
+                <label for="id_last_name">Last name:</label>
+                {{ form.last_name }}
+                {% for error in form.last_name.errors %}
+                    <ul class="errorlist">
+                        <li>{{ error }}</li>
+                    </ul>
+                {% endfor %}
+            </p>
+            <p>
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+                {% for error in form.email.errors %}
+                    <ul class="errorlist">
+                        <li>{{ error }}</li>
+                    </ul>
+                {% endfor %}
+            </p>
+            <p>
+                <label for="id_mobile_number">Mobile number:</label>
+                {{ form.mobile_number }}
+                {% for error in form.mobile_number.errors %}
+                    <ul class="errorlist">
+                        <li>{{ error }}</li>
+                    </ul>
+                {% endfor %}
+            </p>
+            <p>
+                <label for="id_password1">Password:</label>
+                {{ form.password1 }}
+                {% for error in form.password1.errors %}
+                    <ul class="errorlist">
+                        <li>{{ error }}</li>
+                    </ul>
+                {% endfor %}
+            </p>
+            <p>
+                <label for="id_password2">Password confirmation:</label>
+                {{ form.password2 }}
+                {% for error in form.password2.errors %}
+                    <ul class="errorlist">
+                        <li>{{ error }}</li>
+                    </ul>
+                {% endfor %}
+            </p>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already a user? <a href="{% url 'finertia:login' %}">Login</a></p>
+    </div>
+    <div class="footer-content">
+        <p>Follow us to know more:</p>
+        <a href="#">LinkedIn</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a>
+    </div>
+</body>
+</html>
