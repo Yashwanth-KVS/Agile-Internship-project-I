@@ -1,5 +1,6 @@
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
-from django.contrib.auth.models import User, AbstractUser,Group,Permission
+from django.conf import settings  # For accessing the custom user model
 
 
 class AllTransactions(models.Model):
@@ -17,11 +18,12 @@ class AllTransactions(models.Model):
 
 
 class UserData(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     transactions = models.ManyToManyField(AllTransactions)
 
     def __str__(self):
         return self.user.username
+
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
@@ -36,6 +38,7 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)

@@ -77,8 +77,14 @@ class LoginView(View):
                 print("Logged in successfully")
                 login(request, user)
                 return redirect('finertia:dashboard')
+            else:
+                # Add an error if authentication fails
+                form.add_error(None, "Invalid username or password")
+        else:
+            # Handle form errors (e.g., empty fields)
+            form.add_error(None, "Please correct the errors below.")
         print("Login failed")
-        return render(request, 'registration/login.html', {'form': form})
+        return render(request, 'registration/login.html', {'form': form,})
 
 
 def home(request):
