@@ -9,7 +9,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, cross_val_score
 from django.conf import settings
 
-
 credit_card_df = pd.read_csv('finertia/datasets/credit_card.csv')
 daily_household_transactions_df = pd.read_csv('finertia/datasets/Daily Household Transactions.csv')
 loan_approval_df = pd.read_csv('finertia/datasets/loan_approval_dataset.csv')  # Load the loan approval dataset
