@@ -2,6 +2,9 @@
 from django.contrib.auth import  authenticate, logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from .forms import FinancialForm
+from .MLmodel import classify_financial_status_and_suggest_plan
+import pandas as pd
 
 
 # class SignupView(View):
@@ -88,7 +91,7 @@ def home(request):
 #     }
 #     return render(request, 'dashboard.html', context)
 
-@login_required
+
 def dashboard(request):
     user_data = UserData.objects.get(user=request.user)
     user_transactions = user_data.transactions.all()
@@ -146,3 +149,20 @@ def logout(request):
                 login(request, user)
                 return redirect('finertia:dashboard')
         return render(request, 'registration/login.html', {'form': form})
+
+
+def financial_form_view(request):
+    if request.method == 'POST':
+        form = FinancialForm(request.POST)
+        if form.is_valid():
+            form_data = form.cleaned_data
+            stability, loan_eligibility, suggested_loan_amount, plan_text = classify_financial_status_and_suggest_plan(form_data)
+            return render(request, 'result.html', {
+                'stability': stability,
+                'loan_eligibility': loan_eligibility,
+                'suggested_loan_amount': suggested_loan_amount,
+                'plan_text': plan_text
+            })
+    else:
+        form = FinancialForm()
+    return render(request, 'analytics.html', {'form': form})

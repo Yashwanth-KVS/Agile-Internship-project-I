@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Results</title>
+</head>
+<body>
+    <h1>Financial Analysis Results</h1>
+    <p><strong>Financial Status:</strong> {{ stability }}</p>
+    <p><strong>Loan Eligibility:</strong> {{ loan_eligibility }}</p>
+    {% if loan_eligibility == 'Eligible' %}
+        <p><strong>Suggested Loan Amount:</strong> {{ suggested_loan_amount }}</p>
+    {% endif %}
+    <h2>Personalized Financial Plan:</h2>
+    <pre>{{ plan_text }}</pre>
+    <a href="{% url 'finertia:financial_form_view' %}">Back to Form</a>
+</body>
+</html>
