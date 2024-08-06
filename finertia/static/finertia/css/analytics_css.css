@@ -187,3 +187,17 @@ background-color: #000000;
   color: #fff; /* Text color on hover */
 }
 
+/* Styling for paragraphs in the financial analysis results */
+/* Styling for paragraphs in the financial analysis results */
+.financial-form p {
+    font-family: 'Roboto', sans-serif; /* Change font family */
+    font-size: 16px; /* Set font size */
+    color: #333; /* Set text color */
+    margin: 10px 0; /* Add margin to space out paragraphs */
+    line-height: 1.6; /* Improve readability with line-height */
+}
+
+.financial-form strong {
+    color: #007bff; /* Use a different color for the strong text */
+    font-weight: 700; /* Make the strong text bold */
+}

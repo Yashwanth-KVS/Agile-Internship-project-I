@@ -14,6 +14,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'finertia/css/analytics_css.css' %}" />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desktop - 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'finertia/css/analytics_css.css' %}" />
+
 </head>
 <body>
     <div class="desktop-1">
@@ -66,16 +76,17 @@
 
                     <!-- Financial Form Section -->
                     <div class="financial-form">
-                       <h1>Financial Analysis Results</h1>
-                        <p><strong>Financial Status:</strong> {{ stability }}</p>
-                        <p><strong>Loan Eligibility:</strong> {{ loan_eligibility }}</p>
-                        {% if loan_eligibility == 'Eligible' %}
-                            <p><strong>Suggested Loan Amount:</strong> {{ suggested_loan_amount }}</p>
-                        {% endif %}
-                        <h2>Personalized Financial Plan:</h2>
-                        <pre>{{ plan_text }}</pre>
-                        <button onclick="window.location.href='{% url 'finertia:financial_form_view' %}'">Back to Form</button>
-                    </div>
+    <h1>Financial Analysis Results</h1>
+    <p><strong>Financial Status:</strong> {{ stability }}</p>
+    <p><strong>Loan Eligibility:</strong> {{ loan_eligibility }}</p>
+    {% if loan_eligibility == 'Eligible' %}
+        <p><strong>Suggested Loan Amount:</strong> {{ suggested_loan_amount }}</p>
+    {% endif %}
+    <h2>Personalized Financial Plan:</h2>
+    <pre>{{ plan_text }}</pre>
+    <button onclick="window.location.href='{% url 'finertia:financial_form_view' %}'">Back to Form</button>
+</div>
+
                     <!-- End of Financial Form Section -->
 
                 </div>
