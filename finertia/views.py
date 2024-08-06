@@ -1,11 +1,9 @@
-
-from django.contrib.auth import  authenticate, logout as auth_logout
+from django.contrib.auth import authenticate, logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import FinancialForm
 from .MLmodel import classify_financial_status_and_suggest_plan
 import pandas as pd
-
 
 # class SignupView(View):
 #     def get(self, request):
@@ -20,8 +18,9 @@ import pandas as pd
 #             return redirect('finertia:dashboard')
 #         return render(request, 'registration/signup.html', {'form': form})
 
-from django.contrib.auth import login
+
 from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.views import View
 from .models import UserData, AllTransactions
@@ -33,6 +32,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django import forms
 from .models import CustomUser
 
+
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     first_name = forms.CharField(max_length=30, required=True)
@@ -42,6 +42,7 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ("username", "first_name", "last_name", "email", "mobile_number", "password1", "password2")
+
 
 class SignupView(View):
     def get(self, request):
@@ -59,6 +60,7 @@ class SignupView(View):
             print("Form is not valid")
             print(form.errors)
         return render(request, 'registration/signup.html', {'form': form})
+
 
 class LoginView(View):
     def get(self, request):
@@ -84,7 +86,7 @@ class LoginView(View):
             # Handle form errors (e.g., empty fields)
             form.add_error(None, "Please correct the errors below.")
         print("Login failed")
-        return render(request, 'registration/login.html', {'form': form,})
+        return render(request, 'registration/login.html', {'form': form, })
 
 
 def home(request):
@@ -129,19 +131,22 @@ def dashboard(request):
     return render(request, 'dashboard.html', context)
 
 
-
+@login_required
 def analytics(request):
     return render(request, 'analytics.html')
 
 
+@login_required
 def insights(request):
     return render(request, 'ini-test.html')
 
 
+@login_required
 def payments(request):
     return render(request, 'payments.html')
 
 
+@login_required
 def logout(request):
     if request.method == 'GET':
         auth_logout(request)
@@ -161,12 +166,14 @@ def logout(request):
         return render(request, 'registration/login.html', {'form': form})
 
 
+@login_required
 def financial_form_view(request):
     if request.method == 'POST':
         form = FinancialForm(request.POST)
         if form.is_valid():
             form_data = form.cleaned_data
-            stability, loan_eligibility, suggested_loan_amount, plan_text = classify_financial_status_and_suggest_plan(form_data)
+            stability, loan_eligibility, suggested_loan_amount, plan_text = classify_financial_status_and_suggest_plan(
+                form_data)
             return render(request, 'result.html', {
                 'stability': stability,
                 'loan_eligibility': loan_eligibility,
