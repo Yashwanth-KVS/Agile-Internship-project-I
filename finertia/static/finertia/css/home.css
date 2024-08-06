@@ -15,7 +15,7 @@
 
 .desktop-1 .financial-wellness-is-away-of-effectively-managing-your-finances-not-knowing-how-to-deal-with-your-finances-can-lead-to-major-stress-anxiety-or-depression-finance-plays-asubstantial-role-in-your-daily-wellness-and-well-being {
     text-align: center;
-    overflow-wrap: break-word;
+    margin-left: 200px;
     font-family: 'Plus Jakarta Sans';
     font-weight: 600;
     font-size: 30px;
@@ -27,7 +27,6 @@
 .desktop-1 .container-2 {
     background: #000000;
     position: relative;
-    margin-right: 1px;
     display: flex;
     padding: 30.5px 84.8px;
     box-sizing: border-box;
@@ -153,7 +152,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 584.6px;
+    width: 984.6px;
     height: fit-content;
     box-sizing: border-box;
 }
@@ -162,8 +161,8 @@
     margin: 31px 25.4px 95px 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+    /*justify-content: space-between;*/
+    width: 50%;
     height: fit-content;
     box-sizing: border-box;
 }
@@ -188,10 +187,11 @@
 }
 
 .desktop-1 .container-1 {
-    margin: 0 1px 0 116px;
+    /*margin: 0 1px 0 116px;*/
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 50%;
+    margin-left: 700px;
     box-sizing: border-box;
 }
 
