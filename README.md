@@ -29,7 +29,7 @@ Git code contributions to branches of members:
 
 
 Techstack:
-Machine Learning Algorithms, Python, Django, Javascript, Bootstrap, HTML, CSS.
+Machine Learning Algorithms, Python, Django, Javascript, Bootstrap, HTML, CSS, Figma designs.
 
 Tools Used:
-Google Colab, Pycharm
+Google Colab, Pycharm, Figma
