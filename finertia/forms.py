@@ -1,6 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import AllTransactions, UserData, Card
+
+from django.core.exceptions import ValidationError
 
 class FinancialForm(forms.Form):
     annual_income = forms.FloatField(label='Annual Income')
@@ -68,3 +71,29 @@ class CustomUserCreationForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class BillPaymentForm(forms.ModelForm):
+    class Meta:
+        model = Card
+        fields = ['date', 'category', 'card_number', 'cvv_number', 'note', 'amount', 'currency']
+        widgets = {
+            'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'note': forms.Textarea(attrs={'rows': 3}),
+        }
+
+        def clean_card_number(self):
+            card_number = self.cleaned_data['card_number']
+            if not card_number.isdigit():
+                raise ValidationError('Card number must be numeric.')
+            return card_number
+
+        def clean_cvv_number(self):
+            cvv_number = self.cleaned_data['cvv_number']
+            if not cvv_number.isdigit():
+                raise ValidationError('CVV number must be numeric.')
+            return cvv_number
+
+class TransferForm(forms.Form):
+    to_account = forms.CharField(max_length=100)
+    amount = forms.DecimalField(max_digits=10, decimal_places=2)
+    note = forms.CharField(widget=forms.Textarea, required=False)

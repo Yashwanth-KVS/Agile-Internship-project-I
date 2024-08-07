@@ -41,9 +41,16 @@ class CustomUser(AbstractUser):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     additional_field1 = models.CharField(max_length=255, blank=True)
     additional_field2 = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
         return self.user.username
+
+class Card(AllTransactions):
+    card_number = models.IntegerField(max_length=16)
+    cvv_number = models.IntegerField(max_length=3)
+
+    def __str__(self):
+        return f"{self.card_number} - {self.cvv_number}"

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser, Profile
+from .models import CustomUser, Profile,Card,AllTransactions,UserData
 
 
 class CustomUserAdmin(UserAdmin):
@@ -30,3 +30,6 @@ class ProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(Profile, ProfileAdmin)
+admin.site.register(Card)
+admin.site.register(AllTransactions)
+admin.site.register(UserData)
