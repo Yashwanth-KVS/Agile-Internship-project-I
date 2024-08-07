@@ -22,6 +22,29 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../static/finertia/css/base.css" />
+    <style>
+         .custom-menu-item {
+            color: white;
+            text-decoration: none;
+            font-size: 40px;
+            font-weight: 600;
+            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .custom-menu-item:hover {
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ffcc00;
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+         .custom-manage, .custom-preferences {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    </style>
+
 </head>
 {#<header>#}
 {#    <div class="header-image-container">#}
@@ -101,7 +124,7 @@
     </a>
     </div>
 
-    <div class="custom-container">
+    <div class="custom-container" style="margin-top: 40px; color: #00BD9D; margin-right: 40px" >
         <div class="custom-sidebar">
             <div class="custom-manage">MANAGE</div>
                 <div class="custom-menu-item">
@@ -119,10 +142,7 @@
 
 
             <div class="custom-preferences">PREFERENCES</div>
-                <div class="custom-menu-item">
-                    <img src="{% static 'finertia/assets/analtics_insights_payments/vectors/vector_40_x2.svg' %}" alt="Theme Icon" />
-                    <span><a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:payments' %}">Theme</a></span>
-                </div>
+
                 <div class="custom-menu-item">
                     <img src="{% static 'finertia/assets/analtics_insights_payments/vectors/vector_34_x2.svg' %}" alt="Payments Icon" />
                     <span><a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:payments' %}">Payments</a></span>

@@ -1,3 +1,4 @@
+
 <!doctype html>
 {% load static %}
 <html lang="en">
@@ -14,6 +15,109 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'finertia/css/analytics_css.css' %}" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        .sidebar {
+            margin-top: 20px;
+            height: 2200px;
+            padding: 20px;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .manage, .preferences {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .menu-item img {
+            margin-right: 10px;
+        }
+
+        .navbar-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ffcc00;
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        .financial-form {
+            background-color: #2a2a2a; /* Slightly lighter color than black */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px; /* Increased width of the form */
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        .financial-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgb(42, 159, 163);;
+        }
+
+        .financial-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: rgb(42, 159, 163); /* Attractive and eye-catching color */
+        }
+
+        .financial-form input,
+        .financial-form select,
+        .financial-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .financial-form .inline-radio {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .financial-form .inline-radio label {
+            margin-right: 20px;
+        }
+
+        .financial-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(42, 159, 163); /* Attractive and eye-catching color */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #2a2a2a;
+        }
+
+       .financial-form:hover {
+    background-color: #333; /* Slightly lighter color on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+
+    </style>
 </head>
 <body>
     <div class="desktop-1">
@@ -46,10 +150,7 @@
                 </div>
 
                 <div class="preferences">PREFERENCES</div>
-                <div class="menu-item">
-                    <img src="{% static 'finertia/assets/analtics_insights_payments/vectors/vector_40_x2.svg' %}" alt="Theme Icon" />
-                    <span><a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:payments' %}">Theme</a></span>
-                </div>
+
                 <div class="menu-item">
                     <img src="{% static 'finertia/assets/analtics_insights_payments/vectors/vector_34_x2.svg' %}" alt="Payments Icon" />
                     <span><a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:payments' %}">Payments</a></span>
@@ -58,31 +159,6 @@
 
             <div class="main-content">
                 <div class="transactions">
-                    <div class="top-bar">
-                        <div class="title">
-                            <span>Outstanding Loans</span>
-                        </div>
-                    </div>
-
-                    <div class="transactions">
-                        <div class="top-bar">
-                            <div class="title">
-                                <span>Total Spendings</span>
-                                <div class="line"></div>
-                                <span>6700</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="transactions">
-                        <div class="top-bar">
-                            <div class="title">
-                                <span>Spendings Chart</span>
-                                <img src="{% static 'finertia/assets/analtics_insights_payments/images/spendings_chart.png' %}">
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Financial Form Section -->
                     <div class="financial-form">
                         <h1>Financial Form</h1>
@@ -93,7 +169,6 @@
                         </form>
                     </div>
                     <!-- End of Financial Form Section -->
-
                 </div>
             </div>
         </div>

@@ -90,7 +90,10 @@
 body, html {
     margin: 0;
     padding: 0;
-    background-color: black;
+    /*background-color: black;*/
+     background-size: cover;
+  background-attachment: fixed;
+  background-color: rgb(42, 159, 163);
 }
 
 .custom-desktop-2 {
@@ -170,11 +173,12 @@ body, html {
 }
 
 .custom-manage, .custom-preferences {
-    font-family: "Berlin Sans FB", sans-serif;
+
+        font-family: 'Bungee Spice', cursive;
     margin: 20px 0 10px 10px;
     color: white;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 4.2em;
 
 }
 .main-content1 {
