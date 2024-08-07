@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 
 class FinancialForm(forms.Form):
     annual_income = forms.FloatField(label='Annual Income')
-    birthday_count = forms.IntegerField(label='Birthday Count')
+    # birthday_count = forms.IntegerField(label='Birthday Count')
     employed_days = forms.IntegerField(label='Employed Days')
     mobile_phone = forms.BooleanField(label='Mobile Phone', required=False)
     work_phone = forms.BooleanField(label='Work Phone', required=False)
@@ -17,7 +17,7 @@ class FinancialForm(forms.Form):
     total_amount = forms.FloatField(label='Total Amount')
     mean_amount = forms.FloatField(label='Mean Amount')
     std_amount = forms.FloatField(label='Std Amount')
-    productive_ratio = forms.FloatField(label='Productive Ratio')
+    # productive_ratio = forms.FloatField(label='Productive Ratio')
     gender_f = forms.BooleanField(label='Female', required=False)
     car_owner_y = forms.BooleanField(label='Car Owner', required=False)
     propert_owner_y = forms.BooleanField(label='Property Owner', required=False)
@@ -50,6 +50,9 @@ class FinancialForm(forms.Form):
     ])
     cibil_score = forms.IntegerField(label='CIBIL Score')
     bank_assets_value = forms.FloatField(label='Bank Assets Value')
+    # residential_assets_value= forms.IntegerField(label='Residential Assets Value')
+    # commercial_assets_value= forms.IntegerField(label='Commercial Assets Value')
+    # luxury_assets_value= forms.IntegerField(label='Luxury Assets Value')
 
 
 class CustomUserCreationForm(UserCreationForm):

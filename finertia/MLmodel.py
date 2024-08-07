@@ -120,13 +120,16 @@ print(features_df.head(10))
 
 # Load the trained model
 model_filename = 'finertia/MLModel/model.pkl'
+best_model_amount_path='finertia/MLModel/best_model_amount.pkl'
+best_model_term_path='finertia/MLModel/best_model_term.pkl'
 best_model = joblib.load(model_filename)
-
+best_model_amount=joblib.load(best_model_amount_path)
+best_model_term=joblib.load(best_model_term_path)
 def classify_financial_status_and_suggest_plan(form_data):
     # Convert form data to the same format used for model training
     input_data = {
         'Annual_income': form_data['annual_income'],
-        'Birthday_count': form_data['birthday_count'],
+        'Birthday_count': [30],
         'Employed_days': form_data['employed_days'],
         'Mobile_phone': int(form_data['mobile_phone']),
         'Work_Phone': int(form_data['work_phone']),
@@ -136,7 +139,7 @@ def classify_financial_status_and_suggest_plan(form_data):
         'Total_Amount': form_data['total_amount'],
         'Mean_Amount': form_data['mean_amount'],
         'Std_Amount': form_data['std_amount'],
-        'Productive_Ratio': form_data['productive_ratio'],
+        'Productive_Ratio': form_data['annual_income'] / (form_data['annual_income']+form_data['total_amount']),
         'GENDER_F': int(form_data['gender_f']),
         'Car_Owner_Y': int(form_data['car_owner_y']),
         'Propert_Owner_Y': int(form_data['propert_owner_y']),
@@ -146,13 +149,13 @@ def classify_financial_status_and_suggest_plan(form_data):
         'Housing_type_' + form_data['housing_type']: 1,
         'Type_Occupation_' + form_data['type_occupation']: 1
     }
-
+    # production_ratio = income / (income + savings)
     # Ensure all necessary columns are present
     missing_cols = set(features.columns) - set(input_data.keys())
     for col in missing_cols:
         input_data[col] = 0
 
-    input_df = pd.DataFrame([input_data])
+    input_df = pd.DataFrame(input_data)
 
     # Reorder columns to match the training data
     input_df = input_df[features.columns]
@@ -167,37 +170,71 @@ def classify_financial_status_and_suggest_plan(form_data):
     loan_eligibility = 'Eligible'
     if stability == 'Financially Stable' and cibil_score > 650:
         loan_eligibility = 'Eligible'
-        suggested_loan_amount = (0.2 * form_data['annual_income'] + 0.5 * bank_assets_value) / 2
+        #suggested_loan_amount = (0.2 * form_data['annual_income'] + 0.5 * bank_assets_value) / 2
+        print('check1')
+        suggested_loan_amount, suggested_loan_term = suggest_loan_amount(form_data)
     else:
         loan_eligibility = 'Not Eligible'
         suggested_loan_amount = 0
+        suggested_loan_term = 0
 
 
 
     # Generate a dynamic step-by-step financial plan
     steps = []
     if stability == 'Not Financially Stable':
-        steps.append("1. **Reduce Non-Productive Expenses:** Focus on cutting down spending in non-essential categories.")
-        if form_data['productive_ratio'] < 0.3:
-            steps.append("2. **Increase Productive Spending:** Ensure essential needs like healthcare and education are prioritized.")
+        steps.append("Reduce Non-Productive Expenses: Focus on cutting down spending in non-essential categories.")
+        if form_data['annual_income'] / (form_data['annual_income']+form_data['total_amount']) < 0.3:
+            steps.append("Increase Productive Spending: Ensure essential needs like healthcare and education are prioritized.")
         if form_data['annual_income'] < 30000:
-            steps.append("3. **Increase Income:** Consider strategies like upskilling, taking up a side job, or seeking a raise.")
+            steps.append("Increase Income:Consider strategies like upskilling, taking up a side job, or seeking a raise.")
         if bank_assets_value < 5000:
-            steps.append("4. **Build Savings:** Start by setting aside a small portion of your income each month to build an emergency fund.")
+            steps.append("Build Savings:Start by setting aside a small portion of your income each month to build an emergency fund.")
         if cibil_score < 650:
-            steps.append("5. **Improve Credit Score:** Pay off outstanding debts, avoid late payments, and reduce credit utilization.")
-        steps.append("6. **Track and Monitor:** Regularly review your expenses and savings. Use budgeting tools or apps to keep track of your financial progress.")
+            steps.append("Improve Credit Score: Pay off outstanding debts, avoid late payments, and reduce credit utilization.")
+        steps.append(" Track and Monitor: Regularly review your expenses and savings. ")
+        steps.append("     Use budgeting tools or apps to keep track of your financial progress.")
 
     else:
-        steps.append("1. **Maintain Financial Stability:** Continue with your current financial habits to maintain stability.")
+        steps.append("Maintain gfFinancial Stability: Continue with your current financial habits to maintain stability.")
         if cibil_score < 700:
-            steps.append("2. **Improve Credit Score:** Even though you are financially stable, a higher credit score can provide better loan options. Consider reducing credit card balances and ensuring timely payments.")
+            steps.append("Improve Credit Score: Even though you are financially stable,")
+            steps.append( "     a higher credit score can provide better loan options. Consider reducing credit card balances and ensuring timely payments.")
         if form_data['total_amount'] > form_data['annual_income'] * 0.5:
-            steps.append("3. **Optimize Spending:** Your current expenses are over half of your income. Consider optimizing your spending to ensure more is directed towards savings and investments.")
-        steps.append("4. **Invest for the Future:** Explore investment options like retirement accounts, mutual funds, or low-risk savings plans to grow your wealth.")
-        steps.append("5. **Plan for Long-Term Goals:** Start planning for significant financial goals such as buying a house, funding education, or retirement.")
+            steps.append("Optimize Spending: Your current expenses are over half of your income. ")
+            steps.append( "     Consider optimizing your spending to ensure more is directed towards savings and investments.")
+
+        steps.append("Invest for the Future: Explore investment options like retirement accounts, mutual funds,")
+        steps.append("    or low-risk savings plans to grow your wealth.")
+        steps.append("Plan for Long-Term Goals: Start planning for significant financial goals such as buying a house, ")
+        steps.append("    funding education, or retirement.")
+
 
     # Convert the steps list into a readable format
     plan_text = "\n".join(steps)
 
-    return stability, loan_eligibility, suggested_loan_amount, plan_text
+    return stability, loan_eligibility, suggested_loan_amount, plan_text,suggested_loan_term
+
+
+def suggest_loan_amount(form_data):
+    regression_input_data = {
+    ' no_of_dependents': [2],
+    ' education': [0],
+    ' self_employed': [0],
+    ' income_annum': form_data['annual_income'],
+    ' cibil_score': form_data['cibil_score'],
+    ' residential_assets_value': [2400],
+    ' commercial_assets_value': [1760090],
+    ' luxury_assets_value': [227000],
+    ' bank_asset_value': form_data['bank_assets_value'],
+    }
+    print('check2')
+    reg_input_df = pd.DataFrame(regression_input_data)
+    print('check3')
+    loan_amount_raw = best_model_amount.predict(reg_input_df)
+    loan_term = best_model_term.predict(reg_input_df)
+    print(loan_amount_raw)
+    print(loan_term)
+    loan_amount = (0.2 * form_data['annual_income'] + 0.5 * form_data['bank_assets_value'] + 0.2 * (loan_amount_raw/100)) / 2
+
+    return loan_amount[0], loan_term[0]

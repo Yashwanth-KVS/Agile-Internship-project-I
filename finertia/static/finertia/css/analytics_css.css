@@ -4,7 +4,8 @@ body {
   padding: 0;
   background-size: cover;
   background-attachment: fixed;
-  background-color: rgb(42, 159, 163);
+  /*background-color: rgb(42, 159, 163);*/
+  background-color: black;
 
 }
 

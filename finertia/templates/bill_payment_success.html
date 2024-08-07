@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Title</title>#}
-{#</head>#}
+{% extends 'base1.html' %}
+{% load static %}
 {% block body_block %}
 	{% block content %}
     <h2>Bill Payment Successful!</h2>
-    <a href="{% url 'finertia:payments' %}">Pay another bill</a>
+    <a href="{% url 'finertia:payments' %}">
+        <button style="background-color: rgb(42, 159, 163);">Pay another bill</button>
+    </a>
 {% endblock %}
 {% endblock %}
 
-</html>

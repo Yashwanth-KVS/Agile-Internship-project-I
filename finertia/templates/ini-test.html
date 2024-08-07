@@ -1,7 +1,7 @@
-{#{% extends 'base1.html' %}#}
-{#{% load static %}#}
-{##}
-{#{% block body_block %}#}
+{% extends 'base1.html' %}
+{% load static %}
+
+{% block body_block %}
 {#    <div class="container-fluid">#}
 {#        <div class="main-container">#}
 {#    <div class="menu">#}
@@ -34,29 +34,29 @@
 {#        </ul>#}
 {#    </div>#}
 {#    </div>#}
-{##}
-{##}
+
+
 {#    <div class="container mt-5">#}
 {#        <button class="btn-custom">Custom Button</button>#}
 {#        <button class="transparent-btn">Transparent Button</button>#}
 {#    </div>#}
-{##}
-{#    <div class="custom-main-container">#}
-{#     <div class="cards">#}
-{##}
+
+    <div class="custom-main-container">
+     <div class="cards">
+
 {#                <div class="card-container">#}
-{#                    <h2 class="insights-heading" >Insights</h2>#}
-{#                    <div class="row">#}
-{#                        <!-- Card 1 -->#}
-{#                        <div class="col-md-6">#}
-{#                            <div class="card">#}
-{#                                <div class="card-body">#}
-{#                                    <h5 class="card-title">Step 1</h5>#}
-{#                                    <!-- Additional content goes here -->#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <!-- Card 2 -->#}
+                    <h2 class="insights-heading" >Insights</h2>
+                    <div class="row">
+                        <!-- Card 1 -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Step 1</h5>
+                                    <!-- Additional content goes here -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
 {#                        <div class="col-md-6">#}
 {#                            <div class="card">#}
 {#                                <div class="card-body">#}
@@ -119,136 +119,12 @@
 {#                                </div>#}
 {#                            </div>#}
 {#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-    {#    </div>#}
-{##}
-{##}
-{##}
-{##}
-{#{% endblock %}#}
-
-
-<!doctype html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Desktop - 1</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Color:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'finertia/css/analytics_css.css' %}" />
-    <style>
-
-          @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
-    .sidebar {
-        margin-top: 20px;
-        height: 1180px;
-        {#background-color: #333; /* Ensure the sidebar has a background color */#}
-        padding: 20px;
-        color: white;
-        font-family: 'Roboto', sans-serif;
-    }
-
-    .manage, .preferences {
-        font-size: 20px;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    .menu-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-
-    .menu-item img {
-        margin-right: 10px;
-    }
-
-    .navbar-brand {
-        color: white;
-        text-decoration: none;
-        font-size: 20px; /* Increased font size */
-        font-weight: 500; /* Increased font weight */
-        transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-    }
-
-    .navbar-brand:hover {
-        color: #ffcc00; /* Brighter hover color */
-        text-shadow: 0 0 10px #ffcc00;
-        text-decoration: underline;
-        transform: scale(1.1); /* Slightly enlarge on hover */
-    }
-
-
-</style>
-</head>
-<body>
-    <div class="desktop-1">
-        <div class="container">
-            <div class="frame-19">
-                <div class="frame-17">
-                    <span class="login">
-                        <a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:logout' %}">Logout</a>
-                    </span>
-                </div>
-                <div class="home">
-                    <a class="navbar-brand justify-content-between" style="color:white; text-decoration: none;" href="{% url 'finertia:home' %}">Home</a>
-                </div>
-                <img src="{% static 'finertia/assets/analtics_insights_payments/images/finertia_transparent_1.png' %}" style="height: 250px; width: 250px; margin-right: 1300px">
-            </div>
-
-            <div class="sidebar">
-                <div class="manage">MANAGE</div>
-                <div class="menu-item">
-                    <img src="{% static 'finertia/assets/analtics_insights_payments/vectors/vector_2_x2.svg' %}" alt="Dashboard Icon" />
-                    <span><a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:dashboard' %}">Dashboard</a></span>
-                </div>
-                <div class="menu-item">
-                    <img src="{% static 'finertia/assets/analtics_insights_payments/vectors/vector_17_x2.svg' %}" alt="Analytics Icon" />
-                    <span><a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:analytics' %}">Analytics</a></span>
-                </div>
-                <div class="menu-item">
-                    <img src="{% static 'finertia/assets/analtics_insights_payments/vectors/vector_31_x2.svg' %}" alt="Insights Icon" />
-                    <span><a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:insights' %}">Insights</a></span>
-                </div>
-
-                <div class="preferences">PREFERENCES</div>
-
-                <div class="menu-item">
-                    <img src="{% static 'finertia/assets/analtics_insights_payments/vectors/vector_34_x2.svg' %}" alt="Payments Icon" />
-                    <span><a class="navbar-brand" style="color:white; text-decoration: none;" href="{% url 'finertia:payments' %}">Payments</a></span>
-                </div>
-            </div>
-
-            <div class="main-content">
-                <div class="transactions">
-                    <div class="top-bar">
-                        <div class="title" style="font-weight: bolder; font-size: 30px" >
-                            <span>INSIGHTS</span>
-                            <div style="margin-top: 40px; font-size: 20px">
-                               <span>STEPS: </span>
-                            </div>
-                        </div>
                     </div>
-
-
-
-
-
                 </div>
             </div>
-        </div>
-    </div>
-</body>
-</html>
+    {#    </div>#}
+
+
+
+
+{% endblock %}

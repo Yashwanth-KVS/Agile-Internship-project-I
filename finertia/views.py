@@ -147,7 +147,7 @@ def analytics(request):
 
 @login_required
 def insights(request):
-    return render(request, 'ini-test.html')
+    return render(request, 'insights.html')
 
 
 
@@ -178,13 +178,14 @@ def financial_form_view(request):
         form = FinancialForm(request.POST)
         if form.is_valid():
             form_data = form.cleaned_data
-            stability, loan_eligibility, suggested_loan_amount, plan_text = classify_financial_status_and_suggest_plan(
+            stability, loan_eligibility, suggested_loan_amount, plan_text,suggested_loan_term = classify_financial_status_and_suggest_plan(
                 form_data)
-            return render(request, 'result.html', {
+            return render(request, 'insights.html', {
                 'stability': stability,
                 'loan_eligibility': loan_eligibility,
                 'suggested_loan_amount': suggested_loan_amount,
-                'plan_text': plan_text
+                'plan_text': plan_text,
+                'suggested_loan_term': suggested_loan_term,
             })
     else:
         form = FinancialForm()
