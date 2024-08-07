@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'finertia/css/style.css' %}">
+    <style>
+        label{
+            font-weight: bolder;
+        }
+
+    </style>
 </head>
 <body>
 <div class="desktop-1">
@@ -51,12 +57,12 @@
             </p>
             <button type="submit">Login</button>
         </form>
-        <p><a href="{% url 'finertia:password_reset' %}">Forgot password?</a></p>
-        <p>New user? <a href="{% url 'finertia:signup' %}">Sign Up</a></p>
+{#        <p><a href="{% url 'finertia:password_reset' %}">Forgot password?</a></p>#}
+        <p style="font-weight: bolder">New user? <a href="{% url 'finertia:signup' %}" style=" color: white;">Sign Up</a></p>
     </div>
     <div class="footer-content">
         <p>Follow us to know more:</p>
-        <a href="#">LinkedIn</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a>
+        <a href="https://www.linkedin.com/in/finertia-ltd-439669321/">LinkedIn</a> | <a href="https://www.linkedin.com/in/finertia-ltd-439669321/">Twitter</a> | <a href="https://www.linkedin.com/in/finertia-ltd-439669321/">Instagram</a> | <a href="https://www.linkedin.com/in/finertia-ltd-439669321/">Facebook</a>
     </div>
 </body>
 </html>

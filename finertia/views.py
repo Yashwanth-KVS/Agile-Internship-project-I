@@ -119,15 +119,8 @@ def home(request):
 
 @login_required
 def dashboard(request):
-    print('request.user',request.user)
     user_data = UserData.objects.get(user=request.user)
-    print(user_data)
     user_transactions = user_data.transactions.all()
-
-    # Calculate spending by category
-    # category_spending = user_transactions.filter(income_expense='Expense').values('category').annotate(
-    #     total=Coalesce(Sum('amount', output_field=DecimalField()), 0)
-    # ).order_by('-total')
 
     # Calculate spending by category
     category_spending = user_transactions.filter(income_expense='Expense').values('category').annotate(
