@@ -80,7 +80,42 @@
     </form>
 </div>
 
-<div id="billForm" class="form-container hidden">
+{#<div id="billForm" class="form-container hidden">#}
+{#    <h3 style="font-family: 'Comic Sans MS',sans-serif">Pay Bill</h3>#}
+{#    <br>#}
+{#    <form style="font-family: 'Comic Sans MS',sans-serif" method="post">#}
+{#        {% csrf_token %}#}
+{#        <div class="form-card">#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.date.id_for_label }}">Date:</label>#}
+{#                {{ bill_payment_form.date }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.category.id_for_label }}">Category:</label>#}
+{#                {{ bill_payment_form.category }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.subcategory.id_for_label }}">Subcategory:</label>#}
+{#                {{ bill_payment_form.subcategory }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.note.id_for_label }}">Note:</label>#}
+{#                {{ bill_payment_form.note }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.amount.id_for_label }}">Amount:</label>#}
+{#                {{ bill_payment_form.amount }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.currency.id_for_label }}">Currency:</label>#}
+{#                {{ bill_payment_form.currency }}#}
+{#            </div>#}
+{#        </div>#}
+{#        <button type="submit" name="bill_payment">Pay Bill</button>#}
+{#    </form>#}
+{#</div>#}
+
+    <div id="billForm" class="form-container hidden">
     <h3 style="font-family: 'Comic Sans MS',sans-serif">Pay Bill</h3>
     <br>
     <form style="font-family: 'Comic Sans MS',sans-serif" method="post">
@@ -95,10 +130,6 @@
                 {{ bill_payment_form.category }}
             </div>
             <div class="form-field">
-                <label for="{{ bill_payment_form.subcategory.id_for_label }}">Subcategory:</label>
-                {{ bill_payment_form.subcategory }}
-            </div>
-            <div class="form-field">
                 <label for="{{ bill_payment_form.note.id_for_label }}">Note:</label>
                 {{ bill_payment_form.note }}
             </div>
@@ -109,6 +140,14 @@
             <div class="form-field">
                 <label for="{{ bill_payment_form.currency.id_for_label }}">Currency:</label>
                 {{ bill_payment_form.currency }}
+            </div>
+            <div class="form-field">
+                <label for="{{ bill_payment_form.card_number.id_for_label }}">Card Number:</label>
+                {{ bill_payment_form.card_number }}
+            </div>
+            <div class="form-field">
+                <label for="{{ bill_payment_form.cvv_number.id_for_label }}">CVV Number:</label>
+                {{ bill_payment_form.cvv_number }}
             </div>
         </div>
         <button type="submit" name="bill_payment">Pay Bill</button>

@@ -24,3 +24,11 @@ class UserData(models.Model):
         return self.user.username
 
 
+class Card(AllTransactions):
+    card_number = models.IntegerField(max_length=16)
+    cvv_number = models.IntegerField(max_length=3)
+
+    def __str__(self):
+        return f"{self.card_number} - {self.cvv_number}"
+
+

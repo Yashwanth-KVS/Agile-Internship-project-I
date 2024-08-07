@@ -1,7 +1,9 @@
 # transactions/forms.py
 from django import forms
 # from .models import Account, BillPayment
-from .models import AllTransactions, UserData
+from .models import AllTransactions, UserData, Card
+
+from django.core.exceptions import ValidationError
 
 
 # class TransferForm(forms.Form):
@@ -71,9 +73,21 @@ class TransferForm(forms.Form):
 
 class BillPaymentForm(forms.ModelForm):
     class Meta:
-        model = AllTransactions
-        fields = ['date', 'category', 'subcategory', 'note', 'amount', 'currency']
+        model = Card
+        fields = ['date', 'category', 'card_number', 'cvv_number', 'note', 'amount', 'currency']
         widgets = {
             'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             'note': forms.Textarea(attrs={'rows': 3}),
         }
+
+        def clean_card_number(self):
+            card_number = self.cleaned_data['card_number']
+            if not card_number.isdigit():
+                raise ValidationError('Card number must be numeric.')
+            return card_number
+
+        def clean_cvv_number(self):
+            cvv_number = self.cleaned_data['cvv_number']
+            if not cvv_number.isdigit():
+                raise ValidationError('CVV number must be numeric.')
+            return cvv_number

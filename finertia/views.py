@@ -9,7 +9,7 @@ from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.views import View
-from .models import UserData, AllTransactions
+from .models import UserData, AllTransactions,Card
 import random
 from django.db.models import Sum, DecimalField
 from django.db.models.functions import Coalesce
@@ -113,8 +113,8 @@ def insights(request):
     return render(request, 'ini-test.html')
 
 
-def payments(request):
-    return render(request, 'payments.html')
+# def payments(request):
+#     return render(request, 'payments.html')
 
 
 def logout(request):
@@ -174,18 +174,30 @@ def payments(request):
                     note=note,
                     amount=amount,
                     income_expense='expense',
-                    currency='USD'
+                    currency='CAD'
                 )
                 user_data = UserData.objects.get(user=request.user)
                 user_data.transactions.add(transaction)
                 return redirect('transfer_success')
+        # elif 'bill_payment' in request.POST:
+        #     bill_payment_form = BillPaymentForm(request.POST)
+        #     if bill_payment_form.is_valid():
+        #         bill_payment = bill_payment_form.save(commit=False)
+        #         bill_payment.mode = 'Bill Payment'
+        #         bill_payment.category = 'Bill'
+        #         bill_payment.subcategory = 'Utility'
+        #         bill_payment.income_expense = 'expense'
+        #         bill_payment.save()
+        #
+        #         user_data = UserData.objects.get(user=request.user)
+        #         user_data.transactions.add(bill_payment)
+        #         return redirect('bill_payment_success')
         elif 'bill_payment' in request.POST:
             bill_payment_form = BillPaymentForm(request.POST)
             if bill_payment_form.is_valid():
                 bill_payment = bill_payment_form.save(commit=False)
                 bill_payment.mode = 'Bill Payment'
                 bill_payment.category = 'Bill'
-                bill_payment.subcategory = 'Utility'
                 bill_payment.income_expense = 'expense'
                 bill_payment.save()
 
