@@ -1,32 +1,23 @@
+<!-- base_generic.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Finertia{% endblock %}</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'finertia/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'finertia/css/style.css' %}">
 </head>
-<body class="desktop-1">
-    <header>
-        <div class="header-image-container">
-            <img src="{% static 'finertia/assets/images/stock_cake_digital_finance_hub_17182170571.jpeg' %}" alt="Header Image" class="header-image">
-            <div class="header-content">
-                <img src="{% static 'finertia/assets/images/finertia_transparent_1.png' %}" alt="Logo" class="logo">
-            </div>
-        </div>
-    </header>
-    {% block content %}{% endblock %}
-    <footer>
-        <div class="footer-content">
-            <p>Follow us to know more</p>
-            <div class="footer-links">
-                <a href="#"><img src="{% static 'finertia/assets/images/linked_in_2668700640_ezgif_com_crop_11.jpeg' %}" alt="LinkedIn"></a>
-                <a href="#"><img src="{% static 'finertia/assets/images/download_1.jpeg' %}" alt="Instagram"></a>
-                <a href="#"><img src="{% static 'finertia/assets/images/download_11.png' %}" alt="Facebook"></a>
-                <a href="#">Contact Us</a>
-            </div>
-        </div>
-    </footer>
+<body>
+    <div class="header">
+        <img src="{% static 'finertia/assets/images/stock_cake_digital_finance_hub_17182170571.jpeg' %}" alt="Header Background" class="background">
+        <img src="{% static 'finertia/assets/images/finertia_transparent_1.png' %}" alt="Finertia Logo" class="logo">
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="footer-content">
+        <p>Follow us to know more:</p>
+        <a href="#">LinkedIn</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a>
+    </div>
 </body>
 </html>
