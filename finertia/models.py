@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.contrib.auth.models import AbstractUser, Group, Permission, User
 from django.db import models
 from django.conf import settings  # For accessing the custom user model
 
@@ -18,7 +18,7 @@ class AllTransactions(models.Model):
 
 
 class UserData(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     transactions = models.ManyToManyField(AllTransactions)
 
     def __str__(self):

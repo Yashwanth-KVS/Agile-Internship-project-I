@@ -125,8 +125,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Custom user model
-AUTH_USER_MODEL = 'finertia.CustomUser'
+
 
 # Login and logout redirect URLs
 LOGIN_REDIRECT_URL = '/dashboard'

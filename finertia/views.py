@@ -46,15 +46,27 @@ class CustomUserCreationForm(UserCreationForm):
 
 class SignupView(View):
     def get(self, request):
-        form = CustomUserCreationForm()
+        form = UserCreationForm()
         return render(request, 'registration/signup.html', {'form': form})
 
     def post(self, request):
-        form = CustomUserCreationForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             print("Form is valid")
             user = form.save()
             login(request, user)
+            # user = form.save(commit=False)  # Get the unsaved CustomUser instance
+            # user.set_password(form.cleaned_data['password'])
+            # user.save()
+            print('user: ',user)
+            user_data = UserData.objects.create(user=user)
+
+            # Get 15 random transactions
+            all_transactions = list(AllTransactions.objects.all())
+            random_transactions = random.sample(all_transactions, 15)
+
+            # Add transactions to user_data
+            user_data.transactions.add(*random_transactions)
             return redirect('finertia:login')
         else:
             print("Form is not valid")
@@ -105,7 +117,9 @@ def home(request):
 
 @login_required
 def dashboard(request):
+    print('request.user',request.user)
     user_data = UserData.objects.get(user=request.user)
+    print(user_data)
     user_transactions = user_data.transactions.all()
 
     # Calculate spending by category

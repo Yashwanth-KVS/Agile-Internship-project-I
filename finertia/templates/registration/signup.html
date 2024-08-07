@@ -27,43 +27,8 @@
                     </ul>
                 {% endfor %}
             </p>
-            <p>
-                <label for="id_first_name">First name:</label>
-                {{ form.first_name }}
-                {% for error in form.first_name.errors %}
-                    <ul class="errorlist">
-                        <li>{{ error }}</li>
-                    </ul>
-                {% endfor %}
-            </p>
-            <p>
-                <label for="id_last_name">Last name:</label>
-                {{ form.last_name }}
-                {% for error in form.last_name.errors %}
-                    <ul class="errorlist">
-                        <li>{{ error }}</li>
-                    </ul>
-                {% endfor %}
-            </p>
-            <p>
-                <label for="id_email">Email:</label>
-                {{ form.email }}
-                {% for error in form.email.errors %}
-                    <ul class="errorlist">
-                        <li>{{ error }}</li>
-                    </ul>
-                {% endfor %}
-            </p>
-            <p>
-                <label for="id_mobile_number">Mobile number:</label>
-                {{ form.mobile_number }}
-                {% for error in form.mobile_number.errors %}
-                    <ul class="errorlist">
-                        <li>{{ error }}</li>
-                    </ul>
-                {% endfor %}
-            </p>
-            <p>
+
+
                 <label for="id_password1">Password:</label>
                 {{ form.password1 }}
                 {% for error in form.password1.errors %}
