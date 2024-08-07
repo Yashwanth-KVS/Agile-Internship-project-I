@@ -7,9 +7,9 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, cross_val_score
 
-credit_card_df = pd.read_csv('/Users/anjanikumarkandula/Documents/vscode/datasets/Credit_card.csv')
-daily_household_transactions_df = pd.read_csv('/Users/anjanikumarkandula/Documents/vscode/datasets/Daily Household Transactions.csv')
-loan_approval_df = pd.read_csv('/Users/anjanikumarkandula/Documents/vscode/datasets/loan_approval_dataset.csv')  # Load the loan approval dataset
+credit_card_df = pd.read_csv('finertia/datasets/Credit_card.csv')
+daily_household_transactions_df = pd.read_csv('finertia/datasets/Daily Household Transactions.csv')
+loan_approval_df = pd.read_csv('finertia/datasets/loan_approval_dataset.csv')  # Load the loan approval dataset
 
 # Define productive and non-productive categories
 productive_categories = [
@@ -117,7 +117,7 @@ print(features_df.head(10))
 
 
 # Load the trained model
-model_filename = '/Users/anjanikumarkandula/Documents/vscode/datasets/model.pkl'
+model_filename = 'finertia/ML Model/model.pkl'
 best_model = joblib.load(model_filename)
 
 def classify_financial_status_and_suggest_plan(form_data):

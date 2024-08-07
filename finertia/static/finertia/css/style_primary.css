@@ -1,4 +1,6 @@
-@import url("insights1.css");
+
+@import url("payment.css");
+@import url("analytics_css.css");
 body, html {
             margin: 0;
             padding: 0;

@@ -1,4 +1,20 @@
+# transactions/forms.py
 from django import forms
+# from .models import Account, BillPayment
+from .models import AllTransactions, UserData
+
+
+# class TransferForm(forms.Form):
+#     from_account = forms.ModelChoiceField(queryset=Account.objects.all())
+#     to_account = forms.CharField(max_length=20)
+#     amount = forms.DecimalField(max_digits=10, decimal_places=2)
+#
+#
+# class BillPaymentForm(forms.ModelForm):
+#     class Meta:
+#         model = BillPayment
+#         fields = ['account', 'biller', 'amount', 'due_date']
+
 
 class FinancialForm(forms.Form):
     annual_income = forms.FloatField(label='Annual Income')
@@ -45,3 +61,19 @@ class FinancialForm(forms.Form):
     ])
     cibil_score = forms.IntegerField(label='CIBIL Score')
     bank_assets_value = forms.FloatField(label='Bank Assets Value')
+
+
+class TransferForm(forms.Form):
+    to_account = forms.CharField(max_length=100)
+    amount = forms.DecimalField(max_digits=10, decimal_places=2)
+    note = forms.CharField(widget=forms.Textarea, required=False)
+
+
+class BillPaymentForm(forms.ModelForm):
+    class Meta:
+        model = AllTransactions
+        fields = ['date', 'category', 'subcategory', 'note', 'amount', 'currency']
+        widgets = {
+            'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'note': forms.Textarea(attrs={'rows': 3}),
+        }

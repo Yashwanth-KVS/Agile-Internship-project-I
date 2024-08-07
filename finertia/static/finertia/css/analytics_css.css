@@ -154,6 +154,7 @@ background-color: #000000;
   top: 0;
   width: 100%;
   z-index: 1000; /* Ensure header is above other content */
+  margin-left: 0;
 }
 
 .frame-19 div {
