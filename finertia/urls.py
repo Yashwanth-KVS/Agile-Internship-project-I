@@ -3,7 +3,7 @@ from finertia import views
 from django.contrib.auth.views import (
     PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 )
-from .views import SignupView, LoginView, logout, home, dashboard, analytics, insights, payments,financial_form_view
+from .views import SignupView, LoginView, logout, home, dashboard, analytics, insights, payments,financial_form_view,transfer_success,bill_payment_success
 
 app_name = 'finertia'
 
@@ -21,5 +21,7 @@ urlpatterns = [
     path('password_reset/done/', PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
+    path('transfer_success/', transfer_success, name='transfer_success'),
+    path('bill_payment_success/', bill_payment_success, name='bill_payment_success'),
 
 ]

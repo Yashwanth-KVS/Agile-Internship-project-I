@@ -1,515 +1,320 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Desktop - 1</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice:wght@400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Color:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/finertia/css/payments_css.css" />
-  </head>
-  <body>
-    <div class="desktop-1">
-      <div class="container-19">
-        <div class="container-20">
-          <div class="finertia-transparent-1">
-          </div>
+{% extends 'base1.html' %}
+{% load static %}
+
+{% block body_block %}
+
+    <h2 style="font-family: 'Berlin Sans FB',sans-serif; color: white">Payments</h2>
+    <p style="font-family: 'Comic Sans MS',sans-serif ; color: white">Choose an Action to be performed</p>
+    <br>
+
+
+
+{#    <h3>Transfer Funds</h3>#}
+{#    <form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ transfer_form.as_p }}#}
+{#        <button type="submit" name="transfer">Transfer</button>#}
+{#    </form>#}
+{##}
+{#    <h3>Pay Bill</h3>#}
+{#    <form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ bill_payment_form.as_p }}#}
+{#        <button type="submit" name="bill_payment">Pay Bill</button>#}
+{#    </form>#}
+
+{#    <label for="optionSelect"></label><select id="optionSelect" onchange="toggleForms()">#}
+{#        <option value=""> Choose an Option </option>#}
+{#        <option value="transfer">Transfer Funds</option>#}
+{#        <option value="bill">Pay Bill</option>#}
+{#    </select>#}
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Choose an Option
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#" data-value="transfer" onclick="toggleForms('transfer')">Transfer Funds</a></li>
+        <li><a class="dropdown-item" href="#" data-value="bill" onclick="toggleForms('bill')">Pay Bill</a></li>
+    </ul>
+</div>
+
+{#    <div id="transferForm"  class="hidden">#}
+{#    #}
+{#    <h3>Transfer Funds</h3>#}
+{#    <form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ transfer_form.as_p }}#}
+{#        <button type="submit" name="transfer" value="Done" href="{% url 'finertia:transfer_success' %}">Transfer</button>#}
+{#    </form>#}
+{#</div>#}
+{##}
+{#<div id="billForm"  class="hidden">#}
+{#    <h3>Pay Bill</h3>#}
+{#    <form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ bill_payment_form.as_p }}#}
+{#        <button type="submit" name="bill_payment" value="Done" href="{% url 'finertia:bill_payment_success' %}">Pay Bill</button>#}
+{#    </form>#}
+{#</div>#}
+
+   <div id="transferForm" class="form-container hidden">
+    <h3 style="font-family: 'Comic Sans MS',sans-serif">Transfer Funds</h3>
+       <br>
+    <form style="font-family: 'Comic Sans MS',sans-serif" method="post">
+        {% csrf_token %}
+        <div class="form-card">
+            <div class="form-field">
+                <label for="{{ transfer_form.to_account.id_for_label }}">To Account:</label>
+                {{ transfer_form.to_account }}
+            </div>
+            <div class="form-field">
+                <label for="{{ transfer_form.amount.id_for_label }}">Amount:</label>
+                {{ transfer_form.amount }}
+            </div>
+            <div class="form-field">
+                <label for="{{ transfer_form.note.id_for_label }}">Note:</label>
+                {{ transfer_form.note }}
+            </div>
         </div>
-        <div class="container-22">
-          <div class="container-14">
-            <div class="container-11">
-              <div class="manage">
-              MANAGE
-              </div>
-              <div class="container-7">
-                <img class="vector-6" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_28_x2.svg" />
-                <div class="dashboard">
-                Dashboard
-                </div>
-              </div>
-              <div class="container-6">
-                <div class="simple-iconsplausibleanalytics">
-                  <img class="vector-5" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_16_x2.svg" />
-                </div>
-                <div class="analytics">
-                Analytics
-                </div>
-              </div>
-              <div class="container-21">
-                <div class="mingcuteperformance-fill">
-                  <img class="vector-4" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_12_x2.svg" />
-                </div>
-                <div class="insights">
-                Insights
-                </div>
-              </div>
-              <div class="container">
-                <div class="mingcutenotification-fill">
-                  <img class="vector-3" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_24_x2.svg" />
-                </div>
-                <div class="notification">
-                Notification
-                </div>
-              </div>
-              <div class="container-16">
-                <div class="cisettings-filled">
-                  <img class="vector-2" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_6_x2.svg" />
-                </div>
-                <div class="settings">
-                Settings
-                </div>
-              </div>
-              <div class="preferences">
-              PREFERENCES
-              </div>
-              <div class="container-23">
-                <div class="fluentdark-theme-20-regular">
-                  <img class="vector-1" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_37_x2.svg" />
-                </div>
-                <div class="theme">
-                Theme
-                </div>
-              </div>
-              <div class="container-9">
-                <div class="icoutline-security">
-                  <img class="vector" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_13_x2.svg" />
-                </div>
-                <div class="payments">
-                Payments
-                </div>
-              </div>
+        <button type="submit" name="transfer" href="{% url 'finertia:transfer_success' %}">Transfer</button>
+    </form>
+</div>
+
+{#<div id="billForm" class="form-container hidden">#}
+{#    <h3 style="font-family: 'Comic Sans MS',sans-serif">Pay Bill</h3>#}
+{#    <br>#}
+{#    <form style="font-family: 'Comic Sans MS',sans-serif" method="post">#}
+{#        {% csrf_token %}#}
+{#        <div class="form-card">#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.date.id_for_label }}">Date:</label>#}
+{#                {{ bill_payment_form.date }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.category.id_for_label }}">Category:</label>#}
+{#                {{ bill_payment_form.category }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.subcategory.id_for_label }}">Subcategory:</label>#}
+{#                {{ bill_payment_form.subcategory }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.note.id_for_label }}">Note:</label>#}
+{#                {{ bill_payment_form.note }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.amount.id_for_label }}">Amount:</label>#}
+{#                {{ bill_payment_form.amount }}#}
+{#            </div>#}
+{#            <div class="form-field">#}
+{#                <label for="{{ bill_payment_form.currency.id_for_label }}">Currency:</label>#}
+{#                {{ bill_payment_form.currency }}#}
+{#            </div>#}
+{#        </div>#}
+{#        <button type="submit" name="bill_payment">Pay Bill</button>#}
+{#    </form>#}
+{#</div>#}
+
+    <div id="billForm" class="form-container hidden">
+    <h3 style="font-family: 'Comic Sans MS',sans-serif">Pay Bill</h3>
+    <br>
+    <form style="font-family: 'Comic Sans MS',sans-serif" method="post">
+        {% csrf_token %}
+        <div class="form-card">
+            <div class="form-field">
+                <label for="{{ bill_payment_form.date.id_for_label }}">Date:</label>
+                {{ bill_payment_form.date }}
             </div>
-            <div class="frame-44221">
-              <div class="recent-transactions">
-              Recent Transactions
-              </div>
-              <div class="container-3">
-                <div class="frame-44205">
-                  <div class="frame-44200">
-                    <div class="group-43798">
-                      <div class="frame">
-                        <img class="vector-7" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_25_x2.svg" />
-                      </div>
-                    </div>
-                    <div class="frame-44195">
-                      <div class="peace-josh">
-                      Peace Josh
-                      </div>
-                      <span class="july-20211125-pm">
-                      24 July 2021, 11:25pm
-                      </span>
-                    </div>
-                  </div>
-                  <div class="frame-44201">
-                    <div class="group-43793">
-                      <div class="frame-1">
-                        <img class="vector-8" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_7_x2.svg" />
-                      </div>
-                    </div>
-                    <div class="frame-44196">
-                      <div class="samantha-p">
-                      Samantha P.
-                      </div>
-                      <span class="july-20211125-pm-1">
-                      24 July 2021, 11:25pm
-                      </span>
-                    </div>
-                  </div>
-                  <div class="frame-44202">
-                    <div class="group-43800">
-                      <div class="frame-2">
-                        <img class="vector-9" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_22_x2.svg" />
-                      </div>
-                    </div>
-                    <div class="frame-44197">
-                      <div class="joshua-ade">
-                      Joshua Ade
-                      </div>
-                      <span class="july-20211125-pm-2">
-                      24 July 2021, 11:25pm
-                      </span>
-                    </div>
-                  </div>
-                  <div class="frame-44203">
-                    <div class="group-437981">
-                      <div class="frame-3">
-                        <img class="vector-10" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_46_x2.svg" />
-                      </div>
-                    </div>
-                    <div class="frame-44198">
-                      <div class="netflix-subscription">
-                      Netflix Subscription
-                      </div>
-                      <span class="july-20211125-pm-3">
-                      24 July 2021, 11:25pm
-                      </span>
-                    </div>
-                  </div>
-                  <div class="frame-44204">
-                    <div class="group-437982">
-                      <div class="frame-4">
-                        <img class="vector-11" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_21_x2.svg" />
-                      </div>
-                    </div>
-                    <div class="frame-44199">
-                      <div class="mobile-top-up">
-                      Mobile Top-up
-                      </div>
-                      <span class="july-20211125-pm-4">
-                      24 July 2021, 11:25pm
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="container-4">
-                  <div class="allowance">
-                  Allowance
-                  </div>
-                  <div class="shopping">
-                  Shopping
-                  </div>
-                  <div class="urgent-2-k">
-                  Urgent 2k
-                  </div>
-                  <div class="netflix">
-                  Netflix
-                  </div>
-                  <span class="airtime">
-                  Airtime
-                  </span>
-                </div>
-                <div class="container-10">
-                  <div class="container-1">
-                  -$3000
-                  </div>
-                  <div class="container-2">
-                  +$5000
-                  </div>
-                  <div class="container-3">
-                  +$10000
-                  </div>
-                  <div class="container-4">
-                  -$8000
-                  </div>
-                  <span class="container-5">
-                  -$1000
-                  </span>
-                </div>
-              </div>
+            <div class="form-field">
+                <label for="{{ bill_payment_form.category.id_for_label }}">Category:</label>
+                {{ bill_payment_form.category }}
             </div>
-          </div>
-          <div class="wallet">
-            <div class="container-17">
-              <div class="title">
-                <span class="wallet-1">
-                Wallet
-                </span>
-                <div class="cards-1-out-of-4">
-                Cards | 1 out of 4
-                </div>
-              </div>
-              <div class="indicator">
-                <div class="left">
-                  <img class="vector-12" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_x2.svg" />
-                </div>
-                <div class="right">
-                  <img class="vector-13" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_45_x2.svg" />
-                </div>
-              </div>
+            <div class="form-field">
+                <label for="{{ bill_payment_form.note.id_for_label }}">Note:</label>
+                {{ bill_payment_form.note }}
             </div>
-            <div class="container-2">
-              <div class="left-content">
-                <div class="card">
-                </div>
-                <div class="card-1">
-                  <div class="rectangle-19">
-                  </div>
-                  <div class="rectangle-18">
-                  </div>
-                  <div class="container-15">
-                    <div class="image-2">
-                    </div>
-                    <img class="group-1" src="../static/finertia/assets/analtics_insights_payments/vectors/group_1_x2.svg" />
-                    <div class="card-number">
-                    Card Number
-                    </div>
-                    <span class="container-6">
-                    5783 4160 8526 3149
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="line-3">
-              </div>
-              <div class="wallet-details">
-                <div class="balance-and-currency">
-                  <div class="balance">
-                    <div class="balance-1">
-                    Balance
-                    </div>
-                    <span class="container-7">
-                    $14,528,00
-                    </span>
-                  </div>
-                  <div class="currency">
-                    <div class="currency-1">
-                    Currency
-                    </div>
-                    <span class="us-dollar">
-                    US Dollar
-                    </span>
-                  </div>
-                </div>
-                <div class="deactivate-card">
-                  <div class="deactivate-card-1">
-                  Deactivate card
-                  </div>
-                  <div class="toogle-indicator">
-                    <div class="ellipse-6">
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="form-field">
+                <label for="{{ bill_payment_form.amount.id_for_label }}">Amount:</label>
+                {{ bill_payment_form.amount }}
             </div>
-          </div>
-          <div class="transactions">
-            <div class="top-bar">
-              <div class="title-1">
-                <span class="transactions-1">
-                Transactions
-                </span>
-                <div class="line-9">
-                </div>
-                <div class="upcoming-bills">
-                Upcoming Bills
-                </div>
-              </div>
-              <div class="view-all">
-              View all
-              </div>
+            <div class="form-field">
+                <label for="{{ bill_payment_form.currency.id_for_label }}">Currency:</label>
+                {{ bill_payment_form.currency }}
             </div>
-            <div class="netflix-1">
-              <div class="picture">
-                <div class="image-4">
-                </div>
-              </div>
-              <div class="text-contents">
-                <div class="name-and-date">
-                  <div class="netflix-2">
-                  Netflix
-                  </div>
-                  <span class="july-052024-at-2146">
-                  July 05 2024 at 21:46
-                  </span>
-                </div>
-                <div class="container-8">
-                -$15.49
-                </div>
-              </div>
+            <div class="form-field">
+                <label for="{{ bill_payment_form.card_number.id_for_label }}">Card Number:</label>
+                {{ bill_payment_form.card_number }}
             </div>
-            <div class="spotify">
-              <div class="picture-1">
-                <div class="image-5">
-                </div>
-              </div>
-              <div class="text-contents-1">
-                <div class="name-and-date-1">
-                  <div class="spotify-1">
-                  Spotify
-                  </div>
-                  <span class="june-142024-at-0810">
-                  June 14, 2024 at 08:10
-                  </span>
-                </div>
-                <div class="container-9">
-                +$135.49
-                </div>
-              </div>
+            <div class="form-field">
+                <label for="{{ bill_payment_form.cvv_number.id_for_label }}">CVV Number:</label>
+                {{ bill_payment_form.cvv_number }}
             </div>
-            <div class="figma">
-              <div class="picture-2">
-                <div class="image-6">
-                </div>
-              </div>
-              <div class="text-contents-2">
-                <div class="name-and-date-2">
-                  <div class="figma-1">
-                  Figma
-                  </div>
-                  <span class="may-202024-at-1924">
-                  May 20, 2024 at 19:24
-                  </span>
-                </div>
-                <div class="container-10">
-                -$75.00
-                </div>
-              </div>
-            </div>
-            <div class="shopify">
-              <div class="picture-3">
-                <div class="image-7">
-                </div>
-              </div>
-              <div class="text-contents-3">
-                <div class="name-and-date-3">
-                  <div class="shopify-1">
-                  Shopify
-                  </div>
-                  <span class="may-072024-at-0658">
-                  May 07, 2024 at 06:58
-                  </span>
-                </div>
-                <div class="container-11">
-                +$934.29
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="stock-cake-digital-finance-hub-17182170571">
-      </div>
-      <div class="frame-19">
-        <div class="container-18">
-          <span class="home">
-          Home
-          </span>
-          <span class="product">
-          Product
-          </span>
-        </div>
-        <div class="banking">
-        Banking
-        </div>
-        <div class="frame-17">
-          <div class="container">
-          </div>
-          <div class="container-13">
-            <div class="user">
-            User
-            </div>
-            <span class="sampleusergmail-com">
-            sampleuser@gmail.com
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="quick-transfer">
-        <div class="container-5">
-          <div class="top-bar-1">
-            <div class="title-2">
-              <span class="quick-transfer-1">
-              Quick Transfer
-              </span>
-              <div class="line-91">
-              </div>
-              <div class="mobile-top-up-1">
-              Mobile top-up
-              </div>
-            </div>
-            <div class="see-all">
-            See all
-            </div>
-          </div>
-          <div class="card-or-phone">
-            <div class="phcredit-card-thin">
-              <img class="vector-17" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_36_x2.svg" />
-            </div>
-            <span class="card-or-phone-1">
-            Card or phone
-            </span>
-          </div>
-          <div class="card-or-phone-2">
-            <div class="container-12">
-              <img class="iconsax-lineardollarcircle" src="../static/finertia/assets/analtics_insights_payments/vectors/iconsax_lineardollarcircle_x2.svg" />
-              <div class="preferred-amount">
-              Preferred amount
-              </div>
-            </div>
-            <span class="usd-1">
-            USD
-            </span>
-          </div>
-          <div class="frame-6">
-            <div class="percentage">
-              <div class="ellipse-11">
-              </div>
-              <div class="carbonpercentage-filled">
-                <img class="vector-20" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_14_x2.svg" />
-              </div>
-            </div>
-            <div class="fill-sm-btn">
-              <span class="get-started">
-              Get Started
-              </span>
-              <div class="solararrow-right-linear">
-                <img class="vector-21" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_33_x2.svg" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cards">
-          <div class="visa">
-            <div class="container-1">
-              <div class="card-2">
-                <div class="image-21">
-                </div>
-              </div>
-              <div class="detail">
-                <div class="debit-card">
-                3149 Debit card
-                </div>
-                <span class="usd">
-                2895.15 USD
-                </span>
-              </div>
-            </div>
-            <div class="group-2">
-              <img class="vector-14" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_38_x2.svg" />
-            </div>
-          </div>
-          <div class="debit">
-            <div class="container-8">
-              <div class="card-3">
-                <div class="image-3">
-                </div>
-              </div>
-              <div class="frame-4">
-                <div class="debit-card-1">
-                Debit card
-                </div>
-                <span class="europian">
-                EUROPIAN
-                </span>
-              </div>
-            </div>
-            <div class="group-21">
-              <img class="vector-15" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_43_x2.svg" />
-            </div>
-            <img class="vector-16" src="../static/finertia/assets/analtics_insights_payments/vectors/vector_32_x2.svg" />
-          </div>
-        </div>
-        <div class="frame-5">
-          <div class="create-anew-deposit">
-          Create a new deposit!
-          </div>
-          <span class="choose-aflexible-deposit-for-your-savings-suited-to-your-needs-in-invest-bank">
-          Choose a flexible deposit for your savings suited to your<br />
-          needs in InvestBank,
-          </span>
-        </div>
-      </div>
+        <button type="submit" name="bill_payment" href="{% url 'finertia:bill_payment_success' %}">Pay Bill</button>
+    </form>
+</div>
+
+    <p style="font-family: 'Comic Sans MS', sans-serif; color: white" id="banksHeader" class="hidden">Supported Banks</p>
+    <div id="banks" class="payment-icons hidden">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Royal_Bank_of_Canada-Logo.wine.svg' %}" alt="RBC" class="payment-icon">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Canadian_Imperial_Bank_of_Commerce-Logo.wine.svg' %}" alt="CIBC" class="payment-icon">
+        <img style="width: 150px; height: 150px;" src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Bank_of_Montreal-Logo.wine.svg' %}" alt="BMO" class="payment-icon">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Capital One Blue.svg' %}" alt="Capital One" class="payment-icon">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/TD Bank.svg' %}" alt="TD Bank" class="payment-icon">
     </div>
-  </body>
-</html>
+
+    <p style="font-family: 'Comic Sans MS', sans-serif; color: white" id="cardsHeader" class="hidden">Supported Payments</p>
+    <div id="cards" class="payment-icons hidden">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/visa.svg' %}" alt="Visa" class="payment-icon">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/mastercard.svg' %}" alt="Mastercard" class="payment-icon">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/amex.svg' %}" alt="Amex" class="payment-icon">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/paypal.svg' %}" alt="PayPal" class="payment-icon">
+        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/unionpay.svg' %}" alt="UnionPay" class="payment-icon">
+    </div>
+
+    <script>
+        function toggleForms(value) {
+            {#var option = document.getElementById('optionSelect').value;#}
+            var transferForm = document.getElementById('transferForm');
+            var billForm = document.getElementById('billForm');
+            var banksheader  = document.getElementById('banksHeader')
+            var cardHeader = document.getElementById('cardsHeader')
+            var banks = document.getElementById('banks')
+            var cards = document.getElementById('cards')
+
+            if (value === 'transfer') {
+                transferForm.style.display = 'block';
+                billForm.style.display = 'none';
+                banksheader.style.display = 'block';
+                cardHeader.style.display = 'none';
+                banks.style.display = 'block';
+                cards.style.display = 'none';
+            } else if (value === 'bill') {
+                transferForm.style.display = 'none';
+                billForm.style.display = 'block';
+                banksheader.style.display = 'none';
+                cardHeader.style.display = 'block';
+                banks.style.display = 'none';
+                cards.style.display = 'block';
+            } else {
+                transferForm.style.display = 'none';
+                billForm.style.display = 'none';
+                banksheader.style.display = 'none';
+                cardHeader.style.display = 'none';
+                banks.style.display = 'none';
+                cards.style.display = 'none';
+            }
+        }
+
+    </script>
+
+{#     <script>#}
+{#        function toggleVisibility() {#}
+{#    var action = document.getElementById('actionSelect').value;#}
+{##}
+{#    // Get all sections#}
+{#    var transferForm = document.getElementById('transferForm');#}
+{#    var billForm = document.getElementById('billForm');#}
+{#    var banksSection = document.getElementById('banks');#}
+{#    var cardsSection = document.getElementById('cards');#}
+{#    var banksHeader = document.getElementById('banksHeader');#}
+{#    var cardsHeader = document.getElementById('cardsHeader');#}
+{##}
+{#    // Log the selected action to debug#}
+{#    console.log('Selected action:', action);#}
+{##}
+{#    // Hide all sections initially#}
+{#    transferForm.classList.add('hidden');#}
+{#    billForm.classList.add('hidden');#}
+{#    banksSection.classList.add('hidden');#}
+{#    cardsSection.classList.add('hidden');#}
+{#    banksHeader.classList.add('hidden');#}
+{#    cardsHeader.classList.add('hidden');#}
+{##}
+{#    // Show the relevant sections based on the selected action#}
+{#    if (action === 'transfer') {#}
+{#        transferForm.classList.remove('hidden');#}
+{#        banksSection.classList.remove('hidden');#}
+{#        banksHeader.classList.remove('hidden');#}
+{#    } else if (action === 'bill') {#}
+{#        billForm.classList.remove('hidden');#}
+{#        cardsSection.classList.remove('hidden');#}
+{#        cardsHeader.classList.remove('hidden');#}
+{#    }#}
+
+{#    </script>#}
+    <br>
+    <br>
+
+{#    <p style="font-family: 'Comic Sans MS',sans-serif"> Supported payments </p>#}
+{#    <div class="payment-icons">#}
+{#    <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/visa.svg' %}" alt="Visa" class="payment-icon">#}
+{#    <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/mastercard.svg' %}" alt="Mastercard" class="payment-icon">#}
+{#    <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/amex.svg' %}" alt="Amex" class="payment-icon">#}
+{#    <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/paypal.svg' %}" alt="PayPal" class="payment-icon">#}
+{#    <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/unionpay.svg' %}" alt="UnionPay" class="payment-icon">#}
+{#    </div>#}
+{#    <p style="font-family: 'Comic Sans MS',sans-serif"> Supported Banks </p>#}
+{#    <div class="payment-icons">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Royal_Bank_of_Canada-Logo.wine.svg' %}"#}
+{#             alt="RBC" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Canadian_Imperial_Bank_of_Commerce-Logo.wine.svg' %}"#}
+{#             alt="CIBC" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Bank_of_Montreal-Logo.wine.svg' %}"#}
+{#             alt="BMO" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Capital_One-Logo.wine.svg' %}"#}
+{#             alt="NBC" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/TD_Bank,_N.A.-Logo.wine.svg' %}"#}
+{#             alt="CIBC" class="payment-icon">#}
+{##}
+{#    </div>#}
+
+{#    <p style="font-family: 'Comic Sans MS', sans-serif" id="banksHeader" class="hidden">Supported Banks</p>#}
+{#    <div id="banks" class="payment-icons hidden">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Royal_Bank_of_Canada-Logo.wine.svg' %}" alt="RBC" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Canadian_Imperial_Bank_of_Commerce-Logo.wine.svg' %}" alt="CIBC" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Bank_of_Montreal-Logo.wine.svg' %}" alt="BMO" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/Capital_One-Logo.wine.svg' %}" alt="Capital One" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/banks/TD_Bank,_N.A.-Logo.wine.svg' %}" alt="TD Bank" class="payment-icon">#}
+{#    </div>#}
+{##}
+{#    <p style="font-family: 'Comic Sans MS', sans-serif" id="cardsHeader" class="hidden">Supported Payments</p>#}
+{#    <div id="cards" class="payment-icons hidden">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/visa.svg' %}" alt="Visa" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/mastercard.svg' %}" alt="Mastercard" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/amex.svg' %}" alt="Amex" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/paypal.svg' %}" alt="PayPal" class="payment-icon">#}
+{#        <img src="{% static 'finertia/svg-credit-card-payment-icons-main/flat-rounded/unionpay.svg' %}" alt="UnionPay" class="payment-icon">#}
+{#    </div>#}
+
+{#     <script>#}
+{#        function toggleVisibility() {#}
+{#            var action = document.getElementById('actionSelect').value;#}
+{#            var banksSection = document.getElementById('banks');#}
+{#            var cardsSection = document.getElementById('cards');#}
+{#            var banksHeader = document.getElementById('banksHeader');#}
+{#            var cardsHeader = document.getElementById('cardsHeader');#}
+{##}
+{#            if (action === 'transfer') {#}
+{#                banksSection.classList.remove('hidden');#}
+{#                cardsSection.classList.add('hidden');#}
+{#                banksHeader.classList.remove('hidden');#}
+{#                cardsHeader.classList.add('hidden');#}
+{#            } else if (action === 'bill') {#}
+{#                banksSection.classList.add('hidden');#}
+{#                cardsSection.classList.remove('hidden');#}
+{#                banksHeader.classList.add('hidden');#}
+{#                cardsHeader.classList.remove('hidden');#}
+{#            } else {#}
+{#                banksSection.classList.add('hidden');#}
+{#                cardsSection.classList.add('hidden');#}
+{#                banksHeader.classList.add('hidden');#}
+{#                cardsHeader.classList.add('hidden');#}
+{#            }#}
+{#        }#}
+{#    </script>#}
+{% endblock %}
+
+
+
+

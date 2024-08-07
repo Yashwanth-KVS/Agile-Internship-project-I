@@ -14,9 +14,11 @@
     </style>
 </head>
 <body>
+<div class="desktop-1">
     <div class="header">
+        <a href="{% url 'finertia:home' %}" class="home-button">Home</a>
         <img src="{% static 'finertia/assets/images/stock_cake_digital_finance_hub_17182170571.jpeg' %}" alt="Header Background" class="background">
-        <img src="{% static 'finertia/assets/images/finertia_transparent_1.png' %}" alt="Finertia Logo" class="logo">
+        <img src="{% static 'finertia/assets/images/finertia_transparent_1.png' %}" alt="Finertia Logo" class="logo" href="{% url 'finertia:home' %}">
     </div>
     <div class="form-container">
         <h2>Login</h2>
